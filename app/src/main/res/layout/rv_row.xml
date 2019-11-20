@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.shady.tiger.ui.main.MainViewModel" />
+        <variable
+            name="mainFragment"
+            type="com.shady.tiger.ui.main.MainFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_large"
+            android:id="@+id/tvCustomerName"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="@dimen/textMarginStandard"
+            android:layout_marginStart="@dimen/textMarginStandard" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvId"
+            app:layout_constraintTop_toBottomOf="@+id/tvCustomerName"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="@dimen/textMarginStandard"
+            android:layout_marginStart="@dimen/textMarginStandard" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/colorAccent"
+            android:id="@+id/tvStatus"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="@dimen/textMarginStandard"
+            android:layout_marginRight="@dimen/textMarginStandard"
+            app:layout_constraintTop_toBottomOf="@+id/tvId" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

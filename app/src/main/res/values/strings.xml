@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Tiger</string>
+    <string name="no_of_jobs_mainfragment_count">No. of Jobs = </string>
+</resources>
