@@ -12,7 +12,7 @@ import kotlin.collections.ArrayList
 
 class MainRepo(val context: Context, private val api: API, private val dao: JobDAO) {
     suspend fun getJobs(): ArrayList<JobsMockData> = withContext(Dispatchers.IO) {
-        if(Utils().online(context)){
+        if(Utils().isNetworkConnected(context)){
             fillDB(api.getJobsAsync())
             Log.e("network", "fi internet")
         }else{

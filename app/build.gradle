@@ -1,29 +1,26 @@
-apply plugin: 'com.android.application'
-
-apply plugin: 'kotlin-android'
-
-apply plugin: 'kotlin-android-extensions'
-
-apply plugin: 'kotlin-kapt'
-
-apply plugin: "androidx.navigation.safeargs.kotlin"
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+}
 
 ext {
-    koin_version = '2.0.1'
-    core_version = "1.1.0"
-    arc_version = '2.1.0'
-    retrofit_version = "2.6.2"
-    coroutinesVersion = "1.3.2"
-    roomVersion = "2.2.1"
+    koin_version = '2.2.2'
+    arc_version = '2.3.0'
+    navigation_version = '2.3.3'
+    retrofit_version = "2.9.0"
+    coroutinesVersion = "1.4.2"
+    roomVersion = "2.2.6"
 }
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    compileSdkVersion 30
     defaultConfig {
         applicationId "com.shady.tiger"
-        minSdkVersion 18
-        targetSdkVersion 29
+        minSdkVersion 23
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -35,8 +32,12 @@ android {
         }
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
         jvmTarget = "1.8"
@@ -49,16 +50,15 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "androidx.appcompat:appcompat:$core_version"
-    implementation "androidx.core:core-ktx:$core_version"
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation "androidx.appcompat:appcompat:1.2.0"
+    implementation "androidx.core:core-ktx:1.3.2"
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
     //arc libraries
-    implementation "androidx.lifecycle:lifecycle-extensions:$arc_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$arc_version"
-    implementation "androidx.navigation:navigation-fragment-ktx:$arc_version"
-    implementation "androidx.navigation:navigation-ui-ktx:$arc_version"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
 
     // Koin libraries
     implementation "org.koin:koin-android:$koin_version"
@@ -83,10 +83,10 @@ dependencies {
 
     // test libraries
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    androidTestImplementation "androidx.arch.core:core-testing:$arc_version"
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test:runner:1.3.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
     testImplementation "org.koin:koin-test:$koin_version"
     androidTestImplementation "androidx.room:room-testing:$roomVersion"
 }
