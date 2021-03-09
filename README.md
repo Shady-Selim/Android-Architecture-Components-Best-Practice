@@ -12,3 +12,4 @@ In this repo I have used:
  - Fragements
  - MVVM pattern
  - Repository pattern
+ - Kotlin
