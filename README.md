@@ -3,9 +3,12 @@
 In this repo I have used:
  - LiveData
  - Room Library
- - ViewModel
+ - ViewModel 
+ - Constraint Layout
  - Retrofit2
- - Koin
+ - Koin for DI (Dependency Injection)
  - Coroutines
  - Navigation Component
  - Fragements
+ - MVVM pattern
+ - Repository pattern
